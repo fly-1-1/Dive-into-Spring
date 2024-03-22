@@ -1,10 +1,7 @@
 package com.jy;
 
-import com.jy.basic.BeanFactory;
-import com.jy.basic.User;
+import com.jy.basic.*;
 
-import com.jy.basic.UserService;
-import com.jy.basic.UserServiceImpl;
 import org.junit.Test;
 
 public class TestSpring {
@@ -24,5 +21,13 @@ public class TestSpring {
 
         userService.register(user);
     }
+
+    @Test
+    public void test2(){
+        Person person = (Person) BeanFactory.getBean("person");
+        System.out.println(person);
+    }
+
+
 
 }
