@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class BeanFactory {
 
-    private static Properties env=new Properties();
+    private static Properties env = new Properties();
 
     static {
         InputStream inputStream = BeanFactory.class.getResourceAsStream("/applicationContext.properties");
@@ -31,6 +31,21 @@ public class BeanFactory {
             throw new RuntimeException(e);
         }
         return userService;
+    }
+
+    public static UserDao getUserDao() {
+        UserDao userDao = new UserDaoImpl();
+        try {
+            Class clazz = Class.forName(env.getProperty("userDao"));
+            userDao = (UserDao) clazz.newInstance();
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return userDao;
     }
 
 }

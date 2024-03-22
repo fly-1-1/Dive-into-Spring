@@ -3,7 +3,7 @@ package com.jy.basic;
 public class UserServiceImpl implements UserService {
 
 
-    private UserDao userDao = new UserDaoImpl();
+    private UserDao userDao = BeanFactory.getUserDao();
 
     @Override
     public void register(User user) {
