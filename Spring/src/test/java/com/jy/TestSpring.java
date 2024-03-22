@@ -16,7 +16,7 @@ public class TestSpring {
     @Test
     public void test1(){
         //UserService userService = new UserServiceImpl();
-        UserService userService = BeanFactory.getUserService();
+        UserService userService = (UserService) BeanFactory.getBean("userService");
 
         userService.login("name","suns");
 
