@@ -10,12 +10,12 @@
 
     <!--name 小名-->
     <bean id="person"  class="com.jy.basic.Person" >
-        <property name="id">
+        <!--<property name="id">
             <value>10</value>
-        </property>
-        <property name="name">
-            <value>jy</value>
-        </property>
+        </property>-->
+        <property name="id" value="11"/>
+        <property name="name" value="zs"/>
+
         <property name="emails">
             <list>
                 <value>11.@qq.com</value>
@@ -64,10 +64,14 @@
             <bean class="com.jy.basic.UserDaoImpl"/>
         </property>
     </bean>-->
-    <bean id="userService" class="com.jy.basic.UserServiceImpl">
+   <!-- <bean id="userService" class="com.jy.basic.UserServiceImpl">
         <property name="userDao">
            <ref bean="userDAO"/>
         </property>
+    </bean>-->
+
+    <bean id="userService" class="com.jy.basic.UserServiceImpl" >
+        <property name="userDao" ref="userDAO"/>
     </bean>
 
 
