@@ -79,13 +79,14 @@
     <bean id="userService" class="com.jy.basic.UserServiceImpl" p:userDao-ref="userDAO"/>
 
     <bean id="customer" class="com.jy.basic.constructor.Customer">
-        <constructor-arg>
-            <value>zs</value>
+        <constructor-arg type="int">
+            <value>13</value>
         </constructor-arg>
-        <constructor-arg>
-            <value>123</value>
-        </constructor-arg>
+<!--        <constructor-arg>-->
+<!--            <value>123</value>-->
+<!--        </constructor-arg>-->
     </bean>
+
 
 
 </beans>
