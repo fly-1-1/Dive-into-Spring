@@ -16,6 +16,46 @@
         <property name="name">
             <value>jy</value>
         </property>
+        <property name="emails">
+            <list>
+                <value>11.@qq.com</value>
+                <value>22.@qq.com</value>
+            </list>
+        </property>
+        <property name="tels">
+            <set>
+                <value>123</value>
+                <value>321</value>
+            </set>
+        </property>
+        <property name="addresses">
+            <list>
+                <value>zpark</value>
+                <value>shangdi</value>
+                <value>xierq</value>
+                <value>xierq</value>
+                <value>xierq</value>
+            </list>
+        </property>
+        <property name="qqs">
+            <map>
+                <entry>
+                    <key><value>suns</value></key>
+                    <value>3434334343</value>
+                </entry>
+                <entry>
+                    <key><value>chenyn</value></key>
+                    <value>73737373</value>
+                </entry>
+            </map>
+        </property>
+        <property name="p">
+            <props>
+                <prop key="key1">value1</prop>
+                <prop key="key2">value2</prop>
+            </props>
+        </property>
+
     </bean>
 
 </beans>

@@ -6,6 +6,11 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
 public class TestSpring {
 
 
@@ -119,5 +124,54 @@ public class TestSpring {
         Person person = (Person) ctx.getBean("person");
         System.out.println(person);
     }
+
+    /**
+     * 测试JDK成员变量赋值
+     */
+    @Test
+    public void test9() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Person person = (Person) ctx.getBean("person");
+        String[] email = person.getEmails();
+        for (String string : email) {
+            System.out.println(string);
+        }
+    }
+
+    /**
+     * 测试set
+     */
+    @Test
+    public void test10() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Person person = (Person) ctx.getBean("person");
+        String[] emails = person.getEmails();
+        for (String email : emails) {
+            System.out.println("email = " + email);
+        }
+        System.out.println("--------------------------------------------------");
+        Set<String> tels = person.getTels();
+        for (String tel : tels) {
+            System.out.println("tel = " + tel);
+        }
+        System.out.println("-----------------------------------------------------");
+        List<String> addresses = person.getAddresses();
+        for (String address : addresses) {
+            System.out.println("address = " + address);
+        }
+        System.out.println("--------------------------------------------------");
+
+        Map<String, String> qqs = person.getQqs();
+        Set<String> keys = qqs.keySet();
+        for (String key : keys) {
+            System.out.println("key = " + key + " value is " + qqs.get(key));
+        }
+        System.out.println("-----------------------------------------------");
+        Properties p = person.getP();
+        System.out.println("key is key1"+ " values is "+p.getProperty("key1"));
+        System.out.println("key is key2"+ " values is "+p.getProperty("key2"));
+    }
+
+
 
 }
