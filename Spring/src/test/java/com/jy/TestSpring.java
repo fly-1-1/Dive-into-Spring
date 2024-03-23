@@ -60,14 +60,42 @@ public class TestSpring {
             System.out.println(id);
         }*/
 
-        //判断是否有id为person的bean
+        //判断是否有id为person的bean 只可以判断id不能判断name
         /*boolean b = ctx.containsBeanDefinition("person");
         System.out.println(b);*/
 
-        //判断是否有id为person的bean
+        //判断是否有id为person的bean 可以判读id name
         /*boolean b = ctx.containsBean("person");
         System.out.println(b);*/
     }
 
+    /**
+     * 测试Spring配置文件
+     */
+    @Test
+    public void test5() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        /*Person person = ctx.getBean(Person.class);
+        System.out.println(person);*/
+
+        //这个bean使用一次可以省略id
+        //多次使用或者被引用需要设置id
+//        String[] beanDefinitionNames = ctx.getBeanDefinitionNames();
+//        for (String id : beanDefinitionNames) {
+//            System.out.println(id);
+//        }
+    }
+
+    /**
+     * 测试name属性
+     * 相同点 getBean
+     * 区别 别名可以定义多个
+     */
+    @Test
+    public void test6() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Person person = (Person) ctx.getBean("p1");
+        System.out.println(person);
+    }
 
 }

@@ -3,8 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="com.jy.basic.Person"/>
+    <!--    <bean id="person" class="com.jy.basic.Person"/>-->
 
-    <bean id="person1" class="com.jy.basic.Person"/>
+    <!--    <bean id="person1" class="com.jy.basic.Person"/>-->
+
+    <!--name 小名-->
+    <bean id="person" name="p,p1" class="com.jy.basic.Person"/>
 
 </beans>
