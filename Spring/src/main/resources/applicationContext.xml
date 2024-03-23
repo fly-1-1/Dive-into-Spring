@@ -5,4 +5,6 @@
 
     <bean id="person" class="com.jy.basic.Person"/>
 
+    <bean id="person1" class="com.jy.basic.Person"/>
+
 </beans>
