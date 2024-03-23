@@ -98,4 +98,26 @@ public class TestSpring {
         System.out.println(person);
     }
 
+    /**
+     * 测试注入1
+     */
+    @Test
+    public void test7() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Person person = (Person) ctx.getBean("person");
+        person.setId(1);
+        person.setName("s");
+        System.out.println(person);
+    }
+
+    /**
+     * 测试注入2
+     */
+    @Test
+    public void test8() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Person person = (Person) ctx.getBean("person");
+        System.out.println(person);
+    }
+
 }
