@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--suppress ALL -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--    <bean id="person" class="com.jy.basic.Person"/>-->
@@ -9,10 +9,10 @@
     <!--    <bean id="person1" class="com.jy.basic.Person"/>-->
 
     <!--name 小名-->
-    <bean id="person"  class="com.jy.basic.Person" >
-        <!--<property name="id">
+<!--    <bean id="person"  class="com.jy.basic.Person" >
+        &lt;!&ndash;<property name="id">
             <value>10</value>
-        </property>-->
+        </property>&ndash;&gt;
         <property name="id" value="11"/>
         <property name="name" value="zs"/>
 
@@ -55,7 +55,7 @@
                 <prop key="key2">value2</prop>
             </props>
         </property>
-    </bean>
+    </bean>-->
 
     <bean id="userDAO" class="com.jy.basic.UserDaoImpl"/>
 
@@ -70,9 +70,14 @@
         </property>
     </bean>-->
 
-    <bean id="userService" class="com.jy.basic.UserServiceImpl" >
-        <property name="userDao" ref="userDAO"/>
-    </bean>
+<!--    <bean id="userService" class="com.jy.basic.UserServiceImpl" >-->
+<!--        <property name="userDao" ref="userDAO"/>-->
+<!--    </bean>-->
+
+    <bean id="person" class="com.jy.basic.Person" p:name="zs" p:id="100"/>
+
+    <bean id="userService" class="com.jy.basic.UserServiceImpl" p:userDao-ref="userDAO"/>
+
 
 
 
