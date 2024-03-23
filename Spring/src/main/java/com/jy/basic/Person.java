@@ -74,9 +74,7 @@ public class Person {
         this.name = name;
     }
 
-    public Person() {
-        System.out.println("Person.Person");
-    }
+
 
     @Override
     public String toString() {

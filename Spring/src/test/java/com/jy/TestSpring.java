@@ -3,10 +3,12 @@ package com.jy;
 import com.jy.basic.*;
 
 import com.jy.basic.constructor.Customer;
+import com.jy.factorybean.ConnectionFactoryBean;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -193,5 +195,29 @@ public class TestSpring {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
         Customer customer = (Customer) ctx.getBean("customer");
         System.out.println("customer = " + customer);
+    }
+
+    /**
+     *  用于测试:用于测试FactoryBean接口
+     */
+    @Test
+    public void test13() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Connection connection = (Connection) ctx.getBean("conn");
+        Connection connection2 = (Connection) ctx.getBean("conn");
+
+        System.out.println(connection);
+        System.out.println(connection2);
+
+    }
+
+    /**
+     *  用于测试:用于测试FactoryBean接口
+     */
+    @Test
+    public void test14() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        ConnectionFactoryBean connection = (ConnectionFactoryBean) ctx.getBean("&conn");//获取原始对象
+        System.out.println(connection);
     }
 }
