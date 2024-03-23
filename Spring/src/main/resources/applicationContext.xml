@@ -55,7 +55,21 @@
                 <prop key="key2">value2</prop>
             </props>
         </property>
-
     </bean>
+
+    <bean id="userDAO" class="com.jy.basic.UserDaoImpl"/>
+
+    <!--<bean id="userService" class="com.jy.basic.UserServiceImpl">
+        <property name="userDao">
+            <bean class="com.jy.basic.UserDaoImpl"/>
+        </property>
+    </bean>-->
+    <bean id="userService" class="com.jy.basic.UserServiceImpl">
+        <property name="userDao">
+           <ref bean="userDAO"/>
+        </property>
+    </bean>
+
+
 
 </beans>

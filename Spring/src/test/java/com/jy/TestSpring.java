@@ -172,6 +172,16 @@ public class TestSpring {
         System.out.println("key is key2"+ " values is "+p.getProperty("key2"));
     }
 
+    /**
+     *  用于测试:用户自定义类型成员变量的赋值
+     */
+    @Test
+    public void test11() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        UserService userService = (UserService) ctx.getBean("userService");
 
+        userService.register(new User("suns", "123456"));
+        userService.login("xiaohei", "999999");
+    }
 
 }
