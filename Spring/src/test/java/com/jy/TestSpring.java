@@ -2,6 +2,7 @@ package com.jy;
 
 import com.jy.basic.*;
 
+import com.jy.basic.constructor.Customer;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -184,4 +185,13 @@ public class TestSpring {
         userService.login("xiaohei", "999999");
     }
 
+    /**
+     *  用于测试:用于测试构造注入
+     */
+    @Test
+    public void test12() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Customer customer = (Customer) ctx.getBean("customer");
+        System.out.println("customer = " + customer);
+    }
 }
