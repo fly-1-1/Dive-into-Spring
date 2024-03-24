@@ -4,6 +4,7 @@ import com.jy.basic.*;
 
 import com.jy.basic.constructor.Customer;
 import com.jy.factorybean.ConnectionFactoryBean;
+import com.jy.scope.Account;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -229,6 +230,31 @@ public class TestSpring {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
         Connection conn = (Connection) ctx.getBean("conn");
         System.out.println(conn);
+
+    }
+
+    /**
+     *  用于测试:用于测试静态工厂
+     */
+    @Test
+    public void test16() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Connection conn = (Connection) ctx.getBean("conn");
+        System.out.println(conn);
+
+    }
+
+    /**
+     *  用于测试:用于测试简单对象创建次数
+     */
+    @Test
+    public void test17() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Account account1 = (Account) ctx.getBean("account");
+        Account account2 = (Account) ctx.getBean("account");
+
+        System.out.println(account1);
+        System.out.println(account2);
 
     }
 }

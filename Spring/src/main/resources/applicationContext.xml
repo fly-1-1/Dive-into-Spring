@@ -94,9 +94,12 @@
 <!--    <property name="password" value="root"/>-->
 <!--</bean>-->
 
-    <bean id="connFactory" class="com.jy.factorybean.ConnectFactory"/>
+   <!-- <bean id="connFactory" class="com.jy.factorybean.ConnectFactory"/>
 
-    <bean id="conn" factory-bean="connFactory" factory-method="getConnection"/>
+    <bean id="conn" factory-bean="connFactory" factory-method="getConnection"/>-->
 
+    <bean id="conn" class="com.jy.factorybean.StaticConnectionFactory" factory-method="getConnection"/>
+
+    <bean id="account" scope="prototype" class="com.jy.scope.Account"/>
 
 </beans>
