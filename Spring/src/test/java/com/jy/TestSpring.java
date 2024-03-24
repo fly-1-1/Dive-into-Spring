@@ -264,7 +264,8 @@ public class TestSpring {
      */
     @Test
     public void test18() {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
-        //Product product = (Product) ctx.getBean("product");
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Product product = (Product) ctx.getBean("product");
+        ctx.close();
     }
 }

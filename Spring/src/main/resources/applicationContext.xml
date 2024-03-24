@@ -102,6 +102,6 @@
 
     <bean id="account" scope="prototype" class="com.jy.scope.Account"/>
 
-    <bean id="product"  class="com.jy.life.Product" init-method="myInit" />
+    <bean id="product"  class="com.jy.life.Product" init-method="myInit" destroy-method="MyDestroy"/>
 
 </beans>
