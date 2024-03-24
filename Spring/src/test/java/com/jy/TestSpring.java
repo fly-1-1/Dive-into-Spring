@@ -220,4 +220,15 @@ public class TestSpring {
         ConnectionFactoryBean connection = (ConnectionFactoryBean) ctx.getBean("&conn");//获取原始对象
         System.out.println(connection);
     }
+
+    /**
+     *  用于测试:用于测试实例工厂
+     */
+    @Test
+    public void test15() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Connection conn = (Connection) ctx.getBean("conn");
+        System.out.println(conn);
+
+    }
 }

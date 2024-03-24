@@ -87,13 +87,16 @@
 <!--        </constructor-arg>-->
     </bean>
 
-<bean id="conn" class="com.jy.factorybean.ConnectionFactoryBean">
-    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-    <property name="url" value="jdbc:mysql://localhost:3306"/>
-    <property name="username" value="root"/>
-    <property name="password" value="root"/>
-</bean>
+<!--<bean id="conn" class="com.jy.factorybean.ConnectionFactoryBean">-->
+<!--    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--    <property name="url" value="jdbc:mysql://localhost:3306"/>-->
+<!--    <property name="username" value="root"/>-->
+<!--    <property name="password" value="root"/>-->
+<!--</bean>-->
 
+    <bean id="connFactory" class="com.jy.factorybean.ConnectFactory"/>
+
+    <bean id="conn" factory-bean="connFactory" factory-method="getConnection"/>
 
 
 </beans>
