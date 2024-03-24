@@ -278,4 +278,14 @@ public class TestSpring {
         Connection conn = (Connection) ctx.getBean("conn");
         System.out.println(conn);
     }
+
+    /**
+     *  用于测试:用于测试自定义类型转换器
+     */
+    @Test
+    public void test20() {
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext2.xml");
+        com.jy.converter.Person person = (com.jy.converter.Person) ctx.getBean("person");
+        System.out.println(person.getBirthday());
+    }
 }
