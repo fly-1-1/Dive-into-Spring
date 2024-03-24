@@ -5,7 +5,9 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="myDateConverter" class="com.jy.converter.MyDateConverter"/>
+    <bean id="myDateConverter" class="com.jy.converter.MyDateConverter">
+        <property name="pattern" value="yyyy-MM-dd"/>
+    </bean>
 
     <!--用于注册类型转换器-->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">

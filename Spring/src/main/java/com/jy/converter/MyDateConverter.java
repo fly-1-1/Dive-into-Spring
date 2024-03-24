@@ -9,6 +9,15 @@ import java.util.Date;
 
 public class MyDateConverter implements Converter<String, Date> {
 
+    private String pattern;
+
+    public String getPattern() {
+        return pattern;
+    }
+
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
 
     /**
      * 转换
@@ -16,7 +25,7 @@ public class MyDateConverter implements Converter<String, Date> {
      */
     @Override
     public Date convert(String source) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         Date parse = null;
         try {
             parse = sdf.parse(source);

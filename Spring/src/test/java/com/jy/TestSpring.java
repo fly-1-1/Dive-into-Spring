@@ -3,6 +3,7 @@ package com.jy;
 import com.jy.basic.*;
 
 import com.jy.basic.constructor.Customer;
+import com.jy.beanpost.Category;
 import com.jy.factorybean.ConnectionFactoryBean;
 import com.jy.life.Product;
 import com.jy.scope.Account;
@@ -287,5 +288,15 @@ public class TestSpring {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext2.xml");
         com.jy.converter.Person person = (com.jy.converter.Person) ctx.getBean("person");
         System.out.println(person.getBirthday());
+    }
+
+    /**
+     *  用于测试:用于测试BeanPostProcessor
+     */
+    @Test
+    public void test21() {
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext3.xml");
+        Category c = (Category) ctx.getBean("c");
+        System.out.println(c.getName());
     }
 }
