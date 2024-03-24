@@ -268,4 +268,14 @@ public class TestSpring {
         Product product = (Product) ctx.getBean("product");
         ctx.close();
     }
+
+    /**
+     *  用于测试:用于测试配置文件参数化
+     */
+    @Test
+    public void test19() {
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext1.xml");
+        Connection conn = (Connection) ctx.getBean("conn");
+        System.out.println(conn);
+    }
 }
