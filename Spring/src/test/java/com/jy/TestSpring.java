@@ -4,6 +4,7 @@ import com.jy.basic.*;
 
 import com.jy.basic.constructor.Customer;
 import com.jy.factorybean.ConnectionFactoryBean;
+import com.jy.life.Product;
 import com.jy.scope.Account;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -255,6 +256,16 @@ public class TestSpring {
 
         System.out.println(account1);
         System.out.println(account2);
+
+    }
+
+    /**
+     *  用于测试:用于测试生命周期
+     */
+    @Test
+    public void test18() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Product product = (Product) ctx.getBean("product");
 
     }
 }
