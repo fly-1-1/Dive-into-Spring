@@ -2,6 +2,7 @@ package com.jy;
 
 import com.jy.proxy.*;
 import org.junit.Test;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestProxy {
 
@@ -19,5 +20,17 @@ public class TestProxy {
 
         OrderService orderService=new OrderServiceProxy();
         orderService.showOrder();
+    }
+
+    /**
+     * 测试:Spring动态代理
+     */
+    @Test
+    public void Test02(){
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        UserService userService = (UserService) ctx.getBean("userService");
+        userService.login("zs","123");
+        userService.register(new User("za","123"));
+
     }
 }

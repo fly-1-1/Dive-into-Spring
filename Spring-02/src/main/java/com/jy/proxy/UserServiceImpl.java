@@ -9,6 +9,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(String name, String password) {
+        System.out.println("UserServiceImpl.login");
         return true;
     }
 }
