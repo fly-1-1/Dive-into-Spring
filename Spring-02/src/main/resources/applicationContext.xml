@@ -18,7 +18,8 @@
         <!--所有的方法都作为切入点 加入额外功能-->
         <!-- <aop:pointcut id="pc" expression="execution(* login(com.jy.proxy.User))"/>-->
         <!--<aop:pointcut id="pc" expression="execution(* login(String,..))"/>-->
-        <aop:pointcut id="pc" expression="execution(* com.jy.proxy.UserServiceImpl.login(String,..))"/>
+        <!--<aop:pointcut id="pc" expression="execution(* com.jy.proxy.UserServiceImpl.login(String,..))"/>-->
+        <aop:pointcut id="pc" expression="execution(* com.jy.proxy.UserServiceImpl.*(..))"/>
 
         <!--组装: 切入点 与 额外功能 进行整合-->
         <aop:advisor advice-ref="around" pointcut-ref="pc"/>
