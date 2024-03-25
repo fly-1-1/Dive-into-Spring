@@ -5,7 +5,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void register(User user) {
         System.out.println("UserServiceImpl.register 业务运算+Dao");
-        throw new RuntimeException("测试异常");
+//        throw new RuntimeException("测试异常");
     }
 
     @Override
