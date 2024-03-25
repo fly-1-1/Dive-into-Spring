@@ -29,9 +29,8 @@ public class TestProxy {
     public void Test02(){
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
         UserService userService = (UserService) ctx.getBean("userService");
-        boolean ret = userService.login("zs", "123");
-        System.out.println(ret);
-        //userService.register(new User("za","123"));
+        userService.login("zs", "123");
+        userService.register(new User("za","123"));
 
         /*OrderService orderService = (OrderService) ctx.getBean("orderService");
         orderService.showOrder();*/
