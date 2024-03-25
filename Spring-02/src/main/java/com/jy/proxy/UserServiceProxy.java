@@ -1,6 +1,9 @@
 package com.jy.proxy;
 
-public class UserServiceProxy implements UserService{
+import com.jy.proxy.a.UserService;
+import com.jy.proxy.a.UserServiceImpl;
+
+public class UserServiceProxy implements UserService {
 
     private UserServiceImpl userService =new UserServiceImpl();
 

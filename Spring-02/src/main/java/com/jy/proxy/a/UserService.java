@@ -1,4 +1,6 @@
-package com.jy.proxy;
+package com.jy.proxy.a;
+
+import com.jy.proxy.User;
 
 public interface UserService {
     void register(User user);

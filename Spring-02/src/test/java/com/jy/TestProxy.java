@@ -1,6 +1,7 @@
 package com.jy;
 
 import com.jy.proxy.*;
+import com.jy.proxy.a.UserService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

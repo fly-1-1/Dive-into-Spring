@@ -1,11 +1,14 @@
-package com.jy.proxy;
+package com.jy.proxy.a;
+
+import com.jy.Log;
+import com.jy.proxy.User;
 
 public class UserServiceImpl implements UserService {
 
+    @Log
     @Override
     public void register(User user) {
         System.out.println("UserServiceImpl.register 业务运算+Dao");
-//        throw new RuntimeException("测试异常");
     }
 
     @Override
