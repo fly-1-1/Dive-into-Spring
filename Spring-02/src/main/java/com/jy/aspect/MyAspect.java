@@ -13,7 +13,7 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class MyAspect {
 
-    @Pointcut("execution(* login(..))")
+    @Pointcut("execution(* *..UserServiceImpl.*(..))")
     public void myPointCut(){};
 
     //@Around("execution(* login(..))")

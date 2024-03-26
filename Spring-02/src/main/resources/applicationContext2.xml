@@ -11,6 +11,7 @@
     <bean id="around" class="com.jy.aspect.MyAspect"/>
 
     <!--告诉Spring基于注解进行Aop编程-->
-    <aop:aspectj-autoproxy/>
+    <!--proxy-target-class="true" JDK->Cglib -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 
 </beans>
