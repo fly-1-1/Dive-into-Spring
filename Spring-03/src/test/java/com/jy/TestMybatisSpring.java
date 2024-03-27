@@ -20,7 +20,7 @@ public class TestMybatisSpring {
     public void test2(){
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
         UserService userService = (UserService) ctx.getBean("userService");
-        userService.register(new User("zs1","123"));
+        userService.register(new User("zs2","123"));
 
     }
 }
