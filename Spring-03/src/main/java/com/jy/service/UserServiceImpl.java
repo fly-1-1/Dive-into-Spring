@@ -5,7 +5,7 @@ import com.jy.dao.UserDao;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(isolation = Isolation.READ_COMMITTED)
+@Transactional(isolation = Isolation.REPEATABLE_READ)
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
