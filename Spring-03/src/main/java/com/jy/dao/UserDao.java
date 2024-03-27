@@ -1,5 +1,6 @@
 package com.jy.dao;
 
+
 import com.jy.entity.User;
 
 public interface UserDao {
