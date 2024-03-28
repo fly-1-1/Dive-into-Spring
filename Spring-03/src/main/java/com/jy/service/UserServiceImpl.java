@@ -3,9 +3,13 @@ package com.jy.service;
 import com.jy.entity.User;
 import com.jy.dao.UserDao;
 import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-@Transactional(isolation = Isolation.SERIALIZABLE)
+/*
+* propagation = Propagation.REQUIRED  增删改操作需要
+*
+*/
+@Transactional(propagation = Propagation.REQUIRED)
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
