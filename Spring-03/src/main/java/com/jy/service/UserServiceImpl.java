@@ -28,7 +28,11 @@ public class UserServiceImpl implements UserService{
         throw new RuntimeException("测试");
     }
 
+    /*
+    * 针对查询操作业务，提供运行效率
+    * */
     @Override
+    @Transactional(propagation = Propagation.SUPPORTS,readOnly = true)
     public void login(String name, String password) {
 
     }
