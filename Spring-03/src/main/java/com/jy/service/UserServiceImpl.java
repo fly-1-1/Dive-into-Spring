@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 /*
-* propagation = Propagation.REQUIRED  增删改操作需要
-*
+* propagation = Propagation.REQUIRED  增删改操作需要 外有无->开 有->融合
+*propagation = Propagation.SUPPORTS   查询需要      外无->不开 有->融合
 */
-@Transactional(propagation = Propagation.REQUIRED)
+@Transactional(propagation = Propagation.SUPPORTS)
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
