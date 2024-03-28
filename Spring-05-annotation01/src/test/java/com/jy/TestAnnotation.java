@@ -1,11 +1,13 @@
 package com.jy;
 
 import com.jy.bean.User;
+import com.jy.dao.Category;
 import com.jy.dao.UserService;
 import com.jy.lazy.Account;
 import com.jy.life.Product;
 import com.jy.scope.Customer;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAnnotation {
@@ -45,5 +47,17 @@ public class TestAnnotation {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
         UserService userServiceImpl = (UserService) ctx.getBean("userServiceImpl");
         userServiceImpl.register();
+    }
+
+    /**
+     *  用于测试:Value
+     */
+    @Test
+    public void test6() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("/applicationContext.xml");
+        Category category = (Category) ctx.getBean("category");
+        System.out.println("category.getId() = " + category.getId());
+        System.out.println("category.getName() = " + category.getName());
+
     }
 }
