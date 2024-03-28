@@ -6,10 +6,11 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 /*
-* propagation = Propagation.REQUIRED  增删改操作需要 外有无->开 有->融合
+*propagation = Propagation.REQUIRED  增删改操作需要 外有无->开 有->融合 默认值
 *propagation = Propagation.SUPPORTS   查询需要      外无->不开 有->融合
+*Propagation.REQUIRES_NEW 日志需要 外无->开 暂停外部事物
 */
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.REQUIRES_NEW)
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
@@ -25,5 +26,10 @@ public class UserServiceImpl implements UserService{
     public void register(User user) {
         userDao.save(user);
         throw new RuntimeException("测试");
+    }
+
+    @Override
+    public void login(String name, String password) {
+
     }
 }
