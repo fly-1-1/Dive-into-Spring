@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 *propagation = Propagation.SUPPORTS   查询需要      外无->不开 有->融合
 *Propagation.REQUIRES_NEW 日志需要 外无->开 暂停外部事物
 */
-@Transactional(propagation = Propagation.REQUIRES_NEW)
+@Transactional(propagation = Propagation.REQUIRES_NEW,timeout = 2)
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
@@ -24,8 +24,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void register(User user) {
+        try {
+            Thread.currentThread().sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         userDao.save(user);
-        throw new RuntimeException("测试");
+        //throw new RuntimeException("测试");
     }
 
     /*
