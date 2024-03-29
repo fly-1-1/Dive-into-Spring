@@ -4,6 +4,7 @@ import com.jy.bean.ConnectionFactoryBean;
 import com.jy.bean.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,6 +21,7 @@ public class AppConfig {
 
     /*复杂对象*/
     @Bean
+    @Scope("prototype")
     public Connection conn() {
         Connection conn = null;
         try {

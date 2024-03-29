@@ -21,4 +21,15 @@ public class TestAnnotation {
         Connection conn = (Connection) ctx.getBean("conn1");
 
     }
+
+    @Test
+    public void test03(){
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig2.class);
+        String[] names = ctx.getBeanDefinitionNames();
+        for (String name : names) {
+            System.out.println(name);
+        }
+
+
+    }
 }
