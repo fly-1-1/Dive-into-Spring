@@ -10,4 +10,9 @@
     <!--引入springmvc核心功能-->
    <mvc:annotation-driven/>
 
+   <!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>-->
+
 </beans>
