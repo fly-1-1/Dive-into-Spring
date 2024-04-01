@@ -11,6 +11,8 @@
     <modules>
         <module>mvc-01</module>
         <module>mvc-02</module>
+        <module>mvc-03</module>
+        <module>mvc-03/mvc-04</module>
     </modules>
 
     <properties>
