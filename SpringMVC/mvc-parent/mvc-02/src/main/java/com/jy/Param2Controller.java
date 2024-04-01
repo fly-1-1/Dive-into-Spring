@@ -2,11 +2,15 @@ package com.jy;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 @Controller
@@ -36,6 +40,26 @@ public class Param2Controller {
             }
             System.out.println();
         }
+        return "param1";
+    }
+
+
+    /*获取Cookie servlet Api*/
+    @RequestMapping("param3")
+    public String parma3(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if ("name".equals(cookie.getName())){
+                System.out.println("cookie value = " + cookie.getValue());
+            }
+        }
+        return "param1";
+    }
+
+    /*获取Cookie */
+    @RequestMapping("param4")
+    public String parma4(@CookieValue("name")String value) {
+        System.out.println("value = " + value);
         return "param1";
     }
 }
