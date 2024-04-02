@@ -14,4 +14,15 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="myInterceptor" class="com.jy.interceptors.myInterceptor"/>
+
+    <mvc:interceptors>
+        <!--配置一个具体的拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/view2/view1"/>
+            <ref bean="myInterceptor"/>
+        </mvc:interceptor>
+ 
+    </mvc:interceptors>
+
 </beans>
