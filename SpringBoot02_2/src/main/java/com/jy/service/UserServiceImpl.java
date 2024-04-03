@@ -35,4 +35,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User> implements Use
         return list();
 
     }
+
+    public void saveUser(User user){
+        save(user);
+        throw new RuntimeException();
+    }
 }

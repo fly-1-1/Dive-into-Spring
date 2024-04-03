@@ -19,7 +19,11 @@ public class UserController {
     @RequestMapping("findAll")
     public List<User> findAll(){
        return userService.findAll();
+    }
 
+    @RequestMapping("save")
+    public void saveUser(User user){
+       userService.saveUser(user);
     }
 
 }
