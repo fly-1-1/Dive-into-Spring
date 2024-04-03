@@ -1,4 +1,6 @@
 server:
-  port: 8989
-  servlet:
-    context-path: /springboot
+  port: 8080
+
+spring:
+  profiles:
+    active: prod
