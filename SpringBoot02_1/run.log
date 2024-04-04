@@ -1,0 +1,25 @@
+2024-04-04 03:47:42.770  INFO 55880 --- [restartedMain] com.jy.SpringBoot023Application          : Starting SpringBoot023Application using Java 21.0.2 on DESKTOP-MVVTE8A with PID 55880 (C:\Users\qjy\Desktop\WorkSpace\Spring\SpringBoot02_3\target\classes started by qjy in C:\Users\qjy\Desktop\WorkSpace\Spring\SpringBoot02_1)
+2024-04-04 03:47:42.772  INFO 55880 --- [restartedMain] com.jy.SpringBoot023Application          : No active profile set, falling back to 1 default profile: "default"
+2024-04-04 03:47:42.847  INFO 55880 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-04 03:47:42.848  INFO 55880 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-04 03:47:44.283  INFO 55880 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 82 (http)
+2024-04-04 03:47:44.294  INFO 55880 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-04 03:47:44.295  INFO 55880 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2024-04-04 03:47:44.368  INFO 55880 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-04 03:47:44.369  INFO 55880 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1520 ms
+2024-04-04 03:47:45.202  INFO 55880 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-04 03:47:45.245  INFO 55880 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 82 (http) with context path ''
+2024-04-04 03:47:45.254  INFO 55880 --- [restartedMain] com.jy.SpringBoot023Application          : Started SpringBoot023Application in 2.993 seconds (JVM running for 3.844)
+2024-04-04 03:50:59.379  INFO 48908 --- [restartedMain] com.jy.SpringBoot024Application          : Starting SpringBoot024Application using Java 21.0.2 on DESKTOP-MVVTE8A with PID 48908 (C:\Users\qjy\Desktop\WorkSpace\Spring\SpringBoot02_4\target\classes started by qjy in C:\Users\qjy\Desktop\WorkSpace\Spring\SpringBoot02_1)
+2024-04-04 03:50:59.380  INFO 48908 --- [restartedMain] com.jy.SpringBoot024Application          : No active profile set, falling back to 1 default profile: "default"
+2024-04-04 03:50:59.455  INFO 48908 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-04-04 03:50:59.456  INFO 48908 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-04-04 03:51:00.177  WARN 48908 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.jy]' package. Please check your configuration.
+2024-04-04 03:51:00.678  INFO 48908 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 82 (http)
+2024-04-04 03:51:00.686  INFO 48908 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-04-04 03:51:00.687  INFO 48908 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+2024-04-04 03:51:00.750  INFO 48908 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-04-04 03:51:00.751  INFO 48908 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1294 ms
+2024-04-04 03:51:01.231  INFO 48908 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-04-04 03:51:01.264  INFO 48908 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 82 (http) with context path ''
+2024-04-04 03:51:01.274  INFO 48908 --- [restartedMain] com.jy.SpringBoot024Application          : Started SpringBoot024Application in 2.508 seconds (JVM running for 3.354)

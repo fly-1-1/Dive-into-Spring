@@ -1,0 +1,30 @@
+server:
+  port: 91
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
+
+logging:
+  level:
+    root: info
+    com.jy.dao: debug
+
+
+
+spring:
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ems
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+
+mybatis-plus:
+  type-aliases-package: com.jy.entity
+  global-config:
+    db-config:
+      id-type: auto
