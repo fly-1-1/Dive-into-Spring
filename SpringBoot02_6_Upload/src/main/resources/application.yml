@@ -19,3 +19,8 @@ spring:
 file:
   upload:
     dir: D:\
+
+logging:
+  level:
+    root: info
+    com.jy: debug
