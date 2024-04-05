@@ -16,4 +16,14 @@ public class UserServiceTest extends BaseTest{
         System.out.println("name:"+string);
     }
 
+    @Test
+    public void test1(){
+
+        String originalFilename="fwawdf.jpg";
+        String ext = originalFilename.substring(originalFilename.lastIndexOf("."));
+        System.out.println(ext);
+    }
+
+
+
 }

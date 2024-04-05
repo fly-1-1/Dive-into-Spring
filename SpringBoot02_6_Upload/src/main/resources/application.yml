@@ -1,0 +1,21 @@
+server:
+  port: 8989
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
+
+spring:
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /
+
+  servlet:
+    multipart:
+      max-request-size: 120MB
+      max-file-size: 120MB
+
+file:
+  upload:
+    dir: D:\
