@@ -12,6 +12,7 @@
     <artifactId>SpringBoot02_6_Upload</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringBoot02_6_Upload</name>
+    <packaging>war</packaging>
     <description>SpringBoot02_6_Upload</description>
     <properties>
         <java.version>17</java.version>
@@ -30,6 +31,13 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
+            <!--不参与打包-->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
