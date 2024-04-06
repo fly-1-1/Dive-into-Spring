@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -30,11 +32,19 @@ public class WebSecurityConfiguration {
                 //.defaultSuccessUrl("/hello") // 重定向跳转 根据上次保存的页面跳转
                 .successHandler(new MyAuthenticationSuccessHandler()) //前后端分离 认证成功方案
                 //.failureForwardUrl("/login") //forward
-                .failureUrl("/login") //redirect
+                //.failureUrl("/login") //redirect
+                .failureHandler(new MyAuthenticationFailureHandler())//
                 .and()
-                .csrf()
-                .disable()
-                .build();
+                .logout()
+                //.logoutUrl("/logout") //指定注销登陆url
+                .logoutRequestMatcher(new OrRequestMatcher(
+                        new AntPathRequestMatcher("/aa","GET"),
+                        new AntPathRequestMatcher("/bb","POST")
+                ))
+                .invalidateHttpSession(true) //默认 会话失败
+                .clearAuthentication(true) //清除 认证标记
+                .logoutSuccessUrl("/login") //注销登陆跳转登陆界面
+                .and().csrf().disable().build();
     }
 
 }
