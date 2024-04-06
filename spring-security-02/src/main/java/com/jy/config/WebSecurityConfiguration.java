@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -18,12 +17,21 @@ public class WebSecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        return http.authorizeRequests()
+                .mvcMatchers("/login").permitAll()
                 .mvcMatchers("/index").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin();
-        return http.build();
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/doLogin")
+                .usernameParameter("uname")
+                //.successForwardUrl("/hello")
+                .defaultSuccessUrl("/hello") // 重定向跳转 根据上次保存的页面跳转
+                .and()
+                .csrf()
+                .disable()
+                .build();
     }
 
 }

@@ -3,3 +3,5 @@ spring:
     user:
       password: root
       name: root
+  thymeleaf:
+    cache: false
