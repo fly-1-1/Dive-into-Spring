@@ -43,7 +43,8 @@ public class WebSecurityConfiguration {
                 ))
                 .invalidateHttpSession(true) //默认 会话失败
                 .clearAuthentication(true) //清除 认证标记
-                .logoutSuccessUrl("/login") //注销登陆跳转登陆界面
+                //.logoutSuccessUrl("/login") //注销登陆跳转登陆界面
+                .logoutSuccessHandler(new MyLogoutSuccessHandler())
                 .and().csrf().disable().build();
     }
 
