@@ -1,7 +1,5 @@
-server:
-  port: 82
 spring:
   security:
     user:
-      name: root
       password: root
+      name: root
