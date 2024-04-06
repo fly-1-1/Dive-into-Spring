@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>跨域测试</h1>
+<input type="button" value="异步请求" onclick="test()">
+<h4 id="msg"></h4>
+<script>
+    function test(){
+        //1.创建xhr对象
+        var xhr = new XMLHttpRequest();
+
+        //1.5 处理结果
+        xhr.onreadystatechange = function(){
+            if(xhr.status==200 && xhr.readyState==4){
+                console.log(xhr.responseText);
+                document.getElementById("msg").innerText="返回结果为: "+xhr.responseText;
+            }
+        }
+        //2.发送请求
+        xhr.open("GET","http://localhost:8080/demo");
+        xhr.send();
+    }
+</script>
+</body>
+</html>
