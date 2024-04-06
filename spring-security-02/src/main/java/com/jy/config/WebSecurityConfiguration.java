@@ -27,7 +27,8 @@ public class WebSecurityConfiguration {
                 .loginProcessingUrl("/doLogin")
                 .usernameParameter("uname")
                 //.successForwardUrl("/hello")
-                .defaultSuccessUrl("/hello") // 重定向跳转 根据上次保存的页面跳转
+                //.defaultSuccessUrl("/hello") // 重定向跳转 根据上次保存的页面跳转
+                .successHandler(new MyAuthenticationSuccessHandler()) //前后端分离 认证成功方案
                 .and()
                 .csrf()
                 .disable()
