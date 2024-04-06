@@ -3,5 +3,6 @@ spring:
     user:
       password: root
       name: root
+      roles: admin,super
   thymeleaf:
     cache: false
