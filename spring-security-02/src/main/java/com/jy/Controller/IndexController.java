@@ -12,4 +12,13 @@ public class IndexController {
         return "index";
     }
 
+    //获取多个用户
+    @RequestMapping("users")
+    public String users() {
+        System.out.println("IndexController.users");
+        //查询数据库获取用户列表
+
+        return "users";
+    }
+
 }

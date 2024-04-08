@@ -1,25 +1,47 @@
 package com.jy.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 @Configuration
-@EnableWebSecurity
-public class WebSecurityConfiguration {
-//public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-   /* @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-    }*/
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.authorizeRequests()
+    public UserDetailsService userDetailsService() {
+        InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
+        userDetailsService.createUser(User.withUsername("aaa").password("{noop}123456").roles("ADMIN").build());
+        return userDetailsService;
+    }
+
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService());
+    }
+
+    //暴露出AuthenticationManager
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
                 .mvcMatchers("/login").permitAll()
                 .mvcMatchers("/index").permitAll()
                 .anyRequest().authenticated()
@@ -38,14 +60,14 @@ public class WebSecurityConfiguration {
                 .logout()
                 //.logoutUrl("/logout") //指定注销登陆url
                 .logoutRequestMatcher(new OrRequestMatcher(
-                        new AntPathRequestMatcher("/aa","GET"),
-                        new AntPathRequestMatcher("/bb","POST")
+                        new AntPathRequestMatcher("/aa", "GET"),
+                        new AntPathRequestMatcher("/bb", "POST")
                 ))
                 .invalidateHttpSession(true) //默认 会话失败
                 .clearAuthentication(true) //清除 认证标记
                 //.logoutSuccessUrl("/login") //注销登陆跳转登陆界面
                 .logoutSuccessHandler(new MyLogoutSuccessHandler())
-                .and().csrf().disable().build();
+                .and().csrf().disable();
     }
 
 }

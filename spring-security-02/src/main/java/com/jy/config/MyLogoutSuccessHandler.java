@@ -18,11 +18,12 @@ import java.util.Map;
 public class MyLogoutSuccessHandler implements LogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        Map<String, Object> result = new HashMap<String, Object>();
+        Map<String, Object> result = new HashMap<>();
         result.put("msg", "注销成功,当前认证对象为:" + authentication);
         result.put("status", 200);
         response.setContentType("application/json;charset=UTF-8");
         String s = new ObjectMapper().writeValueAsString(result);
         response.getWriter().println(s);
+
     }
 }

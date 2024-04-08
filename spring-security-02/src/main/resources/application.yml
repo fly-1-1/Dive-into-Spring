@@ -6,3 +6,6 @@ spring:
       roles: admin,super
   thymeleaf:
     cache: false
+
+server:
+  port: 89
