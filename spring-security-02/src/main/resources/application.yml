@@ -4,8 +4,23 @@ spring:
       password: root
       name: root
       roles: admin,super
+  datasource:
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dailyfresh
+
   thymeleaf:
     cache: false
 
 server:
   port: 89
+
+
+mybatis-plus:
+  type-aliases-package: com.jy.entity
+  mapper-locations: classpath:com/jy/mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted

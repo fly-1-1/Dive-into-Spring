@@ -18,6 +18,8 @@ import org.springframework.security.web.util.matcher.OrRequestMatcher;
 @Configuration
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private  MyUserDetailsService myUserDetailsService;
 
     @Bean
     public UserDetailsService userDetailsService() {
@@ -29,7 +31,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService());
+        auth.userDetailsService(myUserDetailsService);
     }
 
     //暴露出AuthenticationManager
