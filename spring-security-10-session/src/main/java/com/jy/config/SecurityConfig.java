@@ -1,9 +1,13 @@
 package com.jy.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.session.FindByIndexNameSessionRepository;
+import org.springframework.session.security.SpringSessionBackedSessionRegistry;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -32,7 +36,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     response.getWriter().println(s);
                     response.flushBuffer();
                 })
+                .sessionRegistry(sessionRegistry()) //session交给谁管理
                 .maxSessionsPreventsLogin(true);//用户达到最大会话数时是否阻止登录 只有主动退出登陆才可以再次登录
 
+    }
+
+    private final FindByIndexNameSessionRepository findByIndexNameSessionRepository;
+
+    @Autowired
+    public SecurityConfig(FindByIndexNameSessionRepository findByIndexNameSessionRepository) {
+        this.findByIndexNameSessionRepository = findByIndexNameSessionRepository;
+    }
+
+    //创建 session 同步到 redis 中方案
+    @Bean
+    public SpringSessionBackedSessionRegistry sessionRegistry() {
+        return new SpringSessionBackedSessionRegistry(findByIndexNameSessionRepository);
     }
 }
