@@ -38,6 +38,7 @@ public class CustomerSecurityMetaSource implements FilterInvocationSecurityMetad
         for (Menu menu : allMenu) {
             if (antPathMatcher.match(menu.getPattern(), requestURI)) {
                 String[] roles = menu.getRoles().stream().map(Role::getName).toArray(String[]::new);
+
                 return SecurityConfig.createList(roles);
             }
         }
